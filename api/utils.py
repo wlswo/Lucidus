@@ -55,12 +55,14 @@ def validation(data: dict):
 
 
 def get_theme(theme):
-    return constants.theme.get(theme.strip().lower())
+
+    return constants.theme.get(theme.strip().lower(),constants.theme["dark"])
 
 
 def generate_card(data: dict):
     validation(data)
-    theme = get_theme(data.get("theme", "dark"))
+    theme = get_theme(data.get("theme"))
+    print(theme)
 
     svg = Template('''
     <!DOCTYPE svg PUBLIC
