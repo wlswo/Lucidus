@@ -1,82 +1,79 @@
-h1{
-	color: red; text-align: center;
+.body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
 }
-/*body {*/
-/*  margin: 0;*/
-/*  padding: 0;*/
-/*  background-color: #000;*/
-/*  color: #fff;*/
-/*  font-family: Arial, sans-serif;*/
-/*}*/
 
-/*.container {*/
-/*  max-width: 800px;*/
-/*  margin: 0 auto;*/
-/*  padding: 20px;*/
-/*  text-align: center;*/
-/*}*/
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
 
-/*h1 {*/
-/*  margin-top: 40px;*/
-/*  font-size: 36px;*/
-/*}*/
+h1 {
+  margin-top: 40px;
+  font-size: 36px;
+}
 
-/*.intro {*/
-/*  font-size: 20px;*/
-/*  margin: 20px 0 40px;*/
-/*}*/
+.intro {
+  font-size: 20px;
+  margin: 20px 0 40px;
+}
 
-/*form {*/
-/*  text-align: left;*/
-/*  background: #111;*/
-/*  padding: 20px;*/
-/*  border-radius: 8px;*/
-/*  margin-bottom: 30px;*/
-/*}*/
+form {
+  text-align: left;
+  background: #111;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
 
-/*.form-group {*/
-/*  margin-bottom: 15px;*/
-/*}*/
+.form-group {
+  margin-bottom: 15px;
+}
 
-/*.form-group label {*/
-/*  display: block;*/
-/*  margin-bottom: 5px;*/
-/*  font-weight: bold;*/
-/*}*/
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
 
-/*.form-group input,*/
-/*.form-group textarea {*/
-/*  width: 100%;*/
-/*  padding: 8px;*/
-/*  border: none;*/
-/*  border-radius: 4px;*/
-/*  background-color: #222;*/
-/*  color: #fff;*/
-/*}*/
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: #222;
+  color: #fff;
+}
 
-/*button {*/
-/*  background-color: #3498db;*/
-/*  color: #fff;*/
-/*  border: none;*/
-/*  padding: 10px 20px;*/
-/*  border-radius: 4px;*/
-/*  cursor: pointer;*/
-/*  margin-right: 10px;*/
-/*}*/
+button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
 
-/*button:hover {*/
-/*  background-color: #2980b9;*/
-/*}*/
+button:hover {
+  background-color: #2980b9;
+}
 
-/*#generatedLink p {*/
-/*  margin: 10px 0;*/
-/*}*/
+#generatedLink p {
+  margin: 10px 0;
+}
 
-/*#svgPreview {*/
-/*  margin: 0 auto 40px;*/
-/*  background-color: #222;*/
-/*  padding: 20px;*/
-/*  border-radius: 8px;*/
-/*  width: 440px; !* svg 가로크기에 맞춤 (400 + padding 등) *!*/
-/*  overflow-x: auto;*/
-/*}*/
+#svgPreview {
+  margin: 0 auto 40px;
+  background-color: #222;
+  padding: 20px;
+  border-radius: 8px;
+  width: 440px; /* svg 가로크기에 맞춤 (400 + padding 등) */
+  overflow-x: auto;
+}

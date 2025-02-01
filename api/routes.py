@@ -4,12 +4,11 @@ from typing import Optional
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
+from pathlib import Path
+
 
 router = APIRouter(prefix="/lucidus")
-
 templates = Jinja2Templates(directory="templates")
-router.mount("/static", StaticFiles(directory="static"), name="static")
-
 
 @router.get("/", response_class=HTMLResponse)
 async def serve_template(request: Request):
