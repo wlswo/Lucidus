@@ -112,7 +112,7 @@ button:hover {
 /* 링크 생성 영역 스타일 */
 #generatedLink {
   width: 1000px;
-  height: 80px;
+  min-height: 100px; /* 최소 높이 설정 */
   border: 1.5px solid #6f6e6e;
   border-radius: 10px;
   overflow: hidden;
@@ -121,8 +121,44 @@ button:hover {
   color: white;
   background-color: #1e1e1e; /* 터미널 배경색 */
   font-family: 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace; /* 모노스페이스 폰트 */
-  padding: 10px;
-  box-shadow: inset 0 0 10px #000000; /* 내부 그림자 효과 */
+  text-align: center;
+  padding: 30px;
+  box-sizing: border-box;
+  white-space: normal; /* 줄바꿈 유지 */
+  word-break: break-word; /* 긴 단어가 영역을 벗어나지 않도록 자동 줄바꿈 */
+  overflow: auto; /* 세로 크기가 자동으로 커지는 것 방지 */
+  position: relative;
+}
+
+/* 버튼 스타일 */
+#markdown-copy-btn {
+  position: absolute;
+  width: 67.5px;
+  height: 32.8px;
+  bottom: 10px;
+  left: 920px;
+  font-size: 11.2px; /* 버튼 크기 축소 */
+  padding: 5px 10px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* 버튼 호버 스타일 */
+#markdown-copy-btn:hover {
+  color: black;
+}
+
+/* 복사 완료 상태 */
+#markdown-copy-btn.copied {
+  color: black;
+}
+
+#markdown-copy-btn.copied:hover {
+  color: black;
 }
 
 /* SVG 미리보기 영역 */
@@ -134,7 +170,20 @@ button:hover {
   text-align: center;
 }
 
+#restartAnimation {
+  width: 120px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#restartAnimation:hover {
+  color: black
+}
+
 #footer {
   height: 150px;
 }
-  
