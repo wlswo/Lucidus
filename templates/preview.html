@@ -38,17 +38,17 @@
       </div>
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="John Doe" value="John Doe"
+        <input type="text" id="name" name="name" placeholder="Jayzean Beorn" value="Jayzean Beorn"
                autocomplete="off" maxlength="20">
       </div>
       <div class="form-group">
         <label for="job">Job</label>
-        <input type="text" id="job" name="job" placeholder="Software Engineer"
-               value="Software Engineer" autocomplete="off" maxlength="34">
+        <input type="text" id="job" name="job" placeholder="Software Engineer - Associate"
+               value="Software Engineer - Associate" autocomplete="off" maxlength="34">
       </div>
       <div class="form-group">
         <label for="company">Company</label>
-        <input type="text" id="company" name="company" placeholder="GitHub" value="GitHub"
+        <input type="text" id="company" name="company" placeholder="Moubee Co,. Ltd." value="Moubee Co,. Ltd."
                autocomplete="off" maxlength="34">
       </div>
       <div class="form-group">
@@ -58,8 +58,8 @@
       </div>
       <div class="form-group">
         <label for="about">About Me</label>
-        <input id="about" name="about" rows="3" placeholder="about me"
-               value="I love coding and open source." autocomplete="off" maxlength="34">
+        <input id="about" name="about" rows="3" placeholder="Design is so hard.."
+               value="Design is so hard.." autocomplete="off" maxlength="34">
       </div>
       <div class="form-group">
         <label for="email">Email</label>
@@ -245,17 +245,16 @@
           <circle class="twinkling-star" cx="240" cy="100" r="1.4" style="animation-delay: 3s;"/>
           <circle class="twinkling-star" cx="370" cy="140" r="1.5" style="animation-delay: 4s;"/>
         </g>
-        <text id="svgName" class="name" x="50" y="60">John Doe</text>
-        <text id="svgJob" class="job" x="50" y="90">Software Engineer</text>
-        <text id="svgCompany" class="company" x="50" y="115">GitHub</text>
+        <text id="svgName" class="name" x="50" y="60">Jayzean Beorn</text>
+        <text id="svgJob" class="job" x="50" y="90">Software Engineer - Associate</text>
+        <text id="svgCompany" class="company" x="50" y="115">Moubee Co,. Ltd.</text>
         <g transform="translate(45, 135)">
           <text id="svgAddress" class="address" x="30" y="13">San Francisco, CA</text>
           <path class="address-icon"
                 d="M12 2C8.686 2 6 4.686 6 8C6 12.627 12 21 12 21C12 21 18 12.627 18 8C18 4.686 15.314 2 12 2zM12 10C10.895 10 10 9.105 10 8C10 6.895 10.895 6 12 6C13.105 6 14 6.895 14 8C14 9.105 13.105 10 12 10z"/>
         </g>
         <text id="svgAbout" class="about" x="50" y="190">About Me</text>
-        <text id="svgAboutContent" class="about-content" x="50" y="210">I love coding and open
-          source.
+        <text id="svgAboutContent" class="about-content" x="50" y="210">Design is so hard..
         </text>
         <a id="svgEmail" href="mailto:john@example.com">
           <g class="icon" transform="translate(377, 20) rotate(45)">
@@ -269,7 +268,7 @@
         </a>
 
         <g transform="translate(340, 180) scale(1)">
-          <a id="svgLinkedin" href="https://linkedin.com/in/johndoe">
+          <a id="svgLinkedin" href="https://linkedin.com/">
             <g class="linkedin">
               <path fill="#c37d16"
                     d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"/>
@@ -329,8 +328,7 @@
     const fullUrl = baseUrl + queryString;
 
     const markdown = '![Lucidus](' + fullUrl + ')';
-    const htmllink = '<a href="https://criminal-vivyanne-lucidus-346ca075.koyeb.app/lucidus/"><img src="'
-        + fullUrl + '"/></a>';
+    const htmllink = '<object type="image/svg+xml" data=' + '"'+ fullUrl + '"'+'></object>';
     const notion = fullUrl;
 
     document.getElementById('linkContainerMarkdown').textContent = markdown;
@@ -395,7 +393,7 @@
 
       setTimeout(() => {
         button.textContent = originalText;
-        button.classList.remove("copied");)
+        button.classList.remove("copied");
       }, 1500);
     }).catch(err => {
       console.error("copy fail: ", err);
