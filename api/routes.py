@@ -1,14 +1,14 @@
-from fastapi import APIRouter, Query, Response, Request
-from api import utils
 from typing import Optional
-from fastapi.templating import Jinja2Templates
-from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
-from pathlib import Path
 
+from fastapi import APIRouter, Query, Response, Request
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+
+from api import utils
 
 router = APIRouter(prefix="/lucidus")
 templates = Jinja2Templates(directory="templates")
+
 
 @router.get("/", response_class=HTMLResponse)
 async def serve_template(request: Request):

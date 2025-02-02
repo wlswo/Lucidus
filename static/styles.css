@@ -1,16 +1,46 @@
 /* 배경 그라디언트 적용 */
 @import url('https://fonts.cdnfonts.com/css/mono-sans');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+#topHeader {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #100a1c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid #6f6e6e;
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  font-family: "Bangers", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 35px;
+}
+
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Mona Sans', serif;
-  background: #100a1c;
+  background-color: #100a1c;
   background-image: radial-gradient(50% 30% ellipse at center top, #201e40 0%, rgba(0, 0, 0, 0) 100%),
   radial-gradient(60% 50% ellipse at center bottom, #261226 0%, #100a1c 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   color: white;
   text-align: center;
 }
+
 
 .container {
   max-width: 1000px;
@@ -18,21 +48,19 @@ body {
   padding: 0;
 }
 
-/* 제목 스타일 */
 h1 {
   color: #51b3d9;
-  font-size: 64px; /* GitHub 메인 제목 크기 */
+  font-size: 64px;
   font-weight: bold;
   margin-bottom: 25px;
 }
 
-/* 소개글 스타일 */
 .intro {
   background: linear-gradient(45deg, #e86761 10%, #f557d8 90%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: #8c5059; /* 폴백 컬러 */
+  color: #8c5059;
   font-weight: 500;
   margin: 0 auto 6em;
   max-width: 1000px;
@@ -40,55 +68,81 @@ h1 {
   font-size: 22px;
 }
 
-/* 내부 컨테이너 (텍스트 입력, 명함, 버튼) */
 .internal-container {
-  width: 1000px; /* 원하는 너비 */
-  height: 700px; /* 원하는 높이 */
-  border: 1.5px solid #6f6e6e; /* 하얀색 외곽선 */
-  border-radius: 10px; /* 둥근 모서리 */
-  overflow: hidden; /* 내부 자식 요소들이 둥근 모서리에 맞춰지도록 */
-  display: flex; /* 좌우 분할을 위한 flex 컨테이너 */
-  margin: 10px auto; /* 화면 중앙 배치 (수평) */
+  width: 1000px;
+  height: 700px;
+  border: 1.5px solid #6f6e6e;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  margin: 10px auto;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #100a1c;
 }
 
-/* 폼 스타일 */
+.internal-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(-50%);
+}
+
 form {
   flex: 1;
-  padding: 20px;
+  padding: 10px;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 18px;
+  justify-content: center;
+  margin-right: 50px;
+  margin-top: 25px;
 }
 
 .form-group {
-  display: flex;
-  flex-direction: column;
-  margin-left: 30px;
-  text-align: left;
-  width: 100%;
-  max-width: 400px;
+  position: relative;
+  width: 80%;
+  max-width: 350px;
+  margin-bottom: 20px;
 }
 
 label {
-  font-size: 1rem;
-  margin-top: 15px;
-  margin-bottom: 5px;
+  font-family: "Mona Sans";
+  position: absolute;
+  background-color: #100a1c;
+  top: -18px;
+  left: 5px;
+  padding: 0 5px;
+  font-size: 17px;
+  color: #7c7cf2;
   font-weight: bold;
+  z-index: 2;
 }
 
-input, textarea {
+input, select {
+  font-family: 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace;
   padding: 10px;
-  border-radius: 5px;
-  border: none;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
+  background-color: #100a1c;
+  font-size: 18px;
+  color: #f6f6f7;
   outline: none;
   width: 100%;
+  border: 2px solid rgb(119, 118, 118);
+
+  border-radius: 5px;
+  position: relative;
 }
 
-textarea {
-  resize: none;
+input:focus, select:focus {
+  border-color: #71efbd;
+  box-shadow: 0 -3px 5px rgba(0, 191, 255, 0.5);
 }
 
 button {
@@ -109,74 +163,93 @@ button:hover {
   background: #2980b9;
 }
 
-/* 링크 생성 영역 스타일 */
 #generatedLink {
-  width: 1000px;
-  min-height: 100px; /* 최소 높이 설정 */
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+
+  width: 1011px;
   border: 1.5px solid #6f6e6e;
   border-radius: 10px;
   overflow: hidden;
-  margin: 10px auto;
-  font-size: 1.1rem;
-  color: white;
-  background-color: #1e1e1e; /* 터미널 배경색 */
-  font-family: 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace; /* 모노스페이스 폰트 */
-  text-align: center;
-  padding: 30px;
+  margin: 0px 0px 10px;
+  font-size: 16px;
+  display: block;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px;
   box-sizing: border-box;
-  white-space: normal; /* 줄바꿈 유지 */
-  word-break: break-word; /* 긴 단어가 영역을 벗어나지 않도록 자동 줄바꿈 */
-  overflow: auto; /* 세로 크기가 자동으로 커지는 것 방지 */
   position: relative;
 }
 
-/* 버튼 스타일 */
-#markdown-copy-btn {
+.link-section {
+  color: rgb(148, 146, 146);
+  font-family: 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace;
+  position: relative;
+  background-color: #252525;
+  padding: 55px;
+  border-radius: 5px;
+  border: 1px solid #6f6e6e;
+  min-height: 120px;
+  overflow: visible;
+  justify-content: space-between;
+  display: flex;
+  box-sizing: border-box;
+  white-space: normal;
+  word-break: break-all;
+  margin: 25px;
+}
+
+.link-section .label {
+  font-family: "Mona Sans";
+  color: white;
+  position: absolute;
+  font-size: 22px;
+  font-weight: bold;
+  top: 15px;
+  left: 20px;
+}
+
+.link-section .copy-btn {
   position: absolute;
   width: 67.5px;
   height: 32.8px;
-  bottom: 10px;
-  left: 920px;
-  font-size: 11.2px; /* 버튼 크기 축소 */
+  bottom: 20px;
+  left: 820px;
+  font-size: 11.2px;
   padding: 5px 10px;
   border: none;
-  background-color: #007BFF;
+  background-color: #287cd6;
   color: white;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-/* 버튼 호버 스타일 */
-#markdown-copy-btn:hover {
+.link-section .copy-btn:hover {
   color: black;
 }
 
-/* 복사 완료 상태 */
-#markdown-copy-btn.copied {
-  color: black;
+.link-section .copy-btn.copied {
+  background-color: #287cd6;
 }
 
-#markdown-copy-btn.copied:hover {
-  color: black;
-}
-
-/* SVG 미리보기 영역 */
 #svgPreview {
-  flex: 1; /* 균등한 공간 분배 */
-  padding: 15px;
-  margin-top: 160px;
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
   margin-right: 25px;
-  text-align: center;
 }
 
 #restartAnimation {
+  display: block;
   width: 120px;
+  margin: 20px auto 0;
   padding: 5px 10px;
   border: none;
-  background-color: #007BFF;
+  background-color: #287cd6;
   color: white;
-  border-radius: 5px;
   cursor: pointer;
 }
 

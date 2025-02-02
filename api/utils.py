@@ -1,70 +1,47 @@
-import re
-from fastapi import HTTPException
 from string import Template
+from xml.sax.saxutils import escape
+
+from fastapi import HTTPException
+
 from api import constants
 
 
-def validate_email(email):
-    email_regex = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-    if not re.match(email_regex, email):
-        raise ValueError("Invalid email address")
-    return email
+def custom_escape(text: str) -> str:
+  if not isinstance(text, str):
+    return text
+  # Default XML Escape Character : &, <, >, @ Replace
+  escaped = escape(text).replace("@", "&#64;")
 
-
-def validate_url_special_chars(url: str):
-    """
-    URL validation function
-    - Ensures the URL does not contain disallowed special characters
-    - Allowed characters: a-z, A-Z, 0-9, :, /, ., ?, &, =, %, -, _, ~, #
-    """
-    allowed_chars = "a-zA-Z0-9:/?.&=%\\-_~#"
-    disallowed_pattern = rf"[^{allowed_chars}]"
-
-    if re.search(disallowed_pattern, url):
-        raise HTTPException(status_code=400, detail="URL contains invalid special characters.")
-
-    return url
+  return escaped
 
 
 def validation(data: dict):
-    """
-    Data validation function
-    - Ensures all required fields are present
-    - Filters out disallowed special characters
-    - Limits field length to 80 characters
-    """
-    allowed_special_chars = r"[^a-zA-Z0-9ㄱ-ㅎ가-힣.,&()\- ]"
-    MAX_LENGTH = 80
+  """
+  Data validation function
+  - Limits field length to 80 characters
+  """
+  MAX_LENGTH = 80
 
-    for field, value in data.items():
-        if field == "email":
-            validate_email(value)
-            continue
+  for field, value in data.items():
 
-        if field == "linkedin":
-            validate_url_special_chars(value)
-            continue
-
-        # Check if the field value exceeds 80 characters
-        if len(value) > MAX_LENGTH:
-            raise HTTPException(status_code=400, detail=f"'{field}' field exceeds the maximum length of 80 characters.")
-
-        # Check if the value contains any disallowed special characters
-        if re.search(allowed_special_chars, value):
-            raise HTTPException(status_code=400, detail=f"'{field}' field contains invalid characters.")
+    # Check if the field value exceeds 80 characters
+    if len(value) > MAX_LENGTH:
+      raise HTTPException(status_code=400,
+                          detail=f"'{field}' field exceeds the maximum length of 80 characters.")
 
 
 def get_theme(theme):
-
-    return constants.theme.get(theme.strip().lower(),constants.theme["dark"])
+  return constants.theme.get(theme.strip().lower(), constants.theme["dark"])
 
 
 def generate_card(data: dict):
-    validation(data)
-    theme = get_theme(data.get("theme"))
-    print(theme)
+  validation(data)
 
-    svg = Template('''
+  escaped_data = {k: custom_escape(v) if isinstance(v, str) else v for k, v in
+                  data.items()}
+  theme = get_theme(escaped_data.get("theme", "dark"))
+
+  svg = Template('''
     <!DOCTYPE svg PUBLIC
         "-//W3C//DTD SVG 1.1//EN"
         "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -252,15 +229,15 @@ def generate_card(data: dict):
     </g>
   </a>
 </svg>''').safe_substitute(
-        theme1=theme[0],
-        theme2=theme[1],
-        name=data.get("name"),
-        job=data.get("job"),
-        company=data.get("company"),
-        address=data.get("address"),
-        about=data.get("about"),
-        email=data.get("email"),
-        linkedin=data.get("linkedin")
-    )
+      theme1=theme[0],
+      theme2=theme[1],
+      name=escaped_data.get("name"),
+      job=escaped_data.get("job"),
+      company=escaped_data.get("company"),
+      address=escaped_data.get("address"),
+      about=escaped_data.get("about"),
+      email=escaped_data.get("email"),
+      linkedin=escaped_data.get("linkedin")
+  )
 
-    return svg
+  return svg
