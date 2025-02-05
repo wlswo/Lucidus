@@ -1,437 +1,451 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>Lucidus</title>
-  <link href="{{ url_for('static', path='styles.css') }}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta property="og:title" content="Lucidus">
+    <meta property="og:description"
+          content="🚀 An easy way to create and share business cards. A simple API that generates dynamic SVG business cards on the fly 🪪">
+    <meta property="og:url" content="https://criminal-vivyanne-lucidus-346ca075.koyeb.app/lucidus/">
+    <meta property="og:type" content="website">
+    <meta property="og:image"
+          content="https://criminal-vivyanne-lucidus-346ca075.koyeb.app/lucidus/card_v1?theme=cosmic&name=Lucidus%20C.%20Kahlid&job=Software%20Engineer%20-%20Associate&company=Lucidus%20Co%2C.%20Ltd.&address=San%20Francisco%2C%20CA&about=Design%20is%20so%20hard..&email=john%40example.com&linkedin=https%3A%2F%2Flinkedin.com%2Fin%2Fjohndoe">
+
+    <title>Lucidus</title>
+    <link rel="icon" href="{{ url_for('static', path='/icon/icon.png') }}">
+    <link href="{{ url_for('static', path='styles.css') }}" rel="stylesheet">
 
 </head>
 <header id="topHeader">
-  <div class="header-container">
-    <div class="logo">
-      Lucidus
+    <div class="header-container">
+        <div class="logo">
+            Lucidus
+        </div>
+        <div class="github-star">
+            <iframe
+                    src="https://ghbtns.com/github-btn.html?user=wlswo&repo=lucidus&type=star&count=true&size=large"
+                    frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+        </div>
     </div>
-    <div class="github-star">
-      <iframe
-          src="https://ghbtns.com/github-btn.html?user=wlswo&repo=lucidus&type=star&count=true&size=large"
-          frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
-    </div>
-  </div>
 </header>
 <body>
 <div class="container">
-  <h1>Easily create and share<br>your digital business card</h1>
-  <p class="intro">No design skills required—just get a beautifully crafted digital card
-    instantly.</p>
+    <h1>Easily create and share<br>your digital business card</h1>
+    <p class="intro">No design skills required—just get a beautifully crafted digital card
+        instantly.</p>
 
-  <div class="internal-container">
-    <form id="svgForm">
-      <div class="form-group">
-        <label for="theme">Theme</label>
-        <input type="hidden" id="theme" name="theme" value="dark">
-        <div id="themeInputWrapper">
-          <div id="themePicker">
-            <div class="theme-option selected" data-theme="dark" style="background: linear-gradient(45deg, #101010, #2c3e50);"></div>
-            <div class="theme-option" data-theme="blue" style="background: linear-gradient(45deg, #101010, #29539B);"></div>
-            <div class="theme-option" data-theme="purple" style="background: linear-gradient(45deg, #101010, #923CB5);"></div>
-            <div class="theme-option" data-theme="cosmic" style="background: linear-gradient(45deg, #0D324D, #524053);"></div>
-            <div class="theme-option" data-theme="green" style="background: linear-gradient(45deg, #213529, #104b27);"></div>
-          </div>
+    <div class="internal-container">
+        <form id="svgForm">
+            <div class="form-group">
+                <label for="theme">Theme</label>
+                <input type="hidden" id="theme" name="theme" value="dark">
+                <div id="themeInputWrapper">
+                    <div id="themePicker">
+                        <div class="theme-option selected" data-theme="dark"
+                             style="background: linear-gradient(45deg, #101010, #2c3e50);"></div>
+                        <div class="theme-option" data-theme="blue"
+                             style="background: linear-gradient(45deg, #101010, #29539B);"></div>
+                        <div class="theme-option" data-theme="purple"
+                             style="background: linear-gradient(45deg, #101010, #923CB5);"></div>
+                        <div class="theme-option" data-theme="cosmic"
+                             style="background: linear-gradient(45deg, #0D324D, #524053);"></div>
+                        <div class="theme-option" data-theme="green"
+                             style="background: linear-gradient(45deg, #213529, #104b27);"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Jayzean Beorn" value="Jayzean Beorn"
+                       autocomplete="off" maxlength="20">
+            </div>
+            <div class="form-group">
+                <label for="job">Job</label>
+                <input type="text" id="job" name="job" placeholder="Software Engineer - Associate"
+                       value="Software Engineer - Associate" autocomplete="off" maxlength="34">
+            </div>
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Moubee Co,. Ltd." value="Moubee Co,. Ltd."
+                       autocomplete="off" maxlength="34">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="San Francisco, CA"
+                       value="San Francisco, CA" autocomplete="off" maxlength="40">
+            </div>
+            <div class="form-group">
+                <label for="about">About Me</label>
+                <input id="about" name="about" rows="3" placeholder="Design is so hard.."
+                       value="Design is so hard.." autocomplete="off" maxlength="34">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com"
+                       autocomplete="off" value="john@example.com" maxlength="40">
+            </div>
+            <div class="form-group">
+                <label for="linkedin">LinkedIn URL</label>
+                <input type="url" id="linkedin" name="linkedin"
+                       placeholder="https://linkedin.com/in/username"
+                       value="https://linkedin.com/in/johndoe" autocomplete="off" maxlength="200">
+            </div>
+        </form>
+
+        <div id="svgPreview" class="no-animation">
+            <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="grad" gradientTransform="rotate(45)">
+                        <stop id="stopTheme1" offset="0%" style="stop-color:#101010; stop-opacity:1"/>
+                        <stop id="stopTheme2" offset="100%" style="stop-color:#2c3e50; stop-opacity:1"/>
+                    </linearGradient>
+                    <style>
+                        @keyframes fadeIn {
+                            from {
+                                opacity: 0;
+                                transform: translateY(10px);
+                            }
+                            to {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                        }
+
+                        @keyframes drawBoxPart1 {
+                            0% {
+                                stroke-dasharray: 0 40;
+                            }
+                            100% {
+                                stroke-dasharray: 40 0;
+                            }
+                        }
+
+                        @keyframes drawBoxPart2 {
+                            0% {
+                                stroke-dasharray: 0 40;
+                            }
+                            100% {
+                                stroke-dasharray: 40 0;
+                            }
+                        }
+
+                        @keyframes drawCheck {
+                            0% {
+                                stroke-dasharray: 0 30;
+                            }
+                            100% {
+                                stroke-dasharray: 30 0;
+                            }
+                        }
+
+                        @keyframes twinkle {
+                            0% {
+                                opacity: 0.2;
+                            }
+                            50% {
+                                opacity: 1;
+                            }
+                            100% {
+                                opacity: 0.2;
+                            }
+                        }
+
+                        .twinkling-star {
+                            fill: white;
+                            opacity: 0.2;
+                            animation: twinkle 2s infinite alternate;
+                        }
+
+                        text {
+                            font-family: "Open Sans", sans-serif;
+                            fill: white;
+                            font-size: 22px;
+                            opacity: 0;
+                            animation: fadeIn 1s ease-in-out forwards;
+                            dominant-baseline: middle;
+                        }
+
+                        text.name {
+                            font-size: 30px;
+                            font-weight: bold;
+                            animation: fadeIn 0.5s ease-in-out forwards;
+                            animation-delay: 0.6s;
+                        }
+
+                        text.job {
+                            font-size: 18px;
+                            animation: fadeIn 0.5s ease-in-out forwards;
+                            animation-delay: 1s;
+                        }
+
+                        text.company {
+                            font-size: 18px;
+                            animation: fadeIn 0.5s ease-in-out forwards;
+                            animation-delay: 1.2s;
+                        }
+
+                        text.address {
+                            fill: #777777;
+                            font-size: 15px;
+                            animation: fadeIn 0.5s ease-in-out forwards;
+                            animation-delay: 1.4s;
+                        }
+
+                        text.about {
+                            fill: white;
+                            font-size: 22px;
+                            animation: fadeIn 0.5s ease-in-out forwards;
+                            animation-delay: 1.8s;
+                        }
+
+                        text.about-content {
+                            fill: #979696;
+                            font-size: 15px;
+                            animation: fadeIn 0.5s ease-in-out forwards;
+                            animation-delay: 1.9s;
+                        }
+
+                        .address-icon {
+                            fill: #777777;
+                            opacity: 0;
+                            animation: fadeIn 0.5s ease-in-out forwards;
+                            animation-delay: 1.5s;
+                        }
+
+                        .icon line {
+                            stroke: white;
+                            stroke-width: 1.5;
+                            fill: none;
+                        }
+
+                        .icon .top-left {
+                            stroke-dasharray: 40;
+                            stroke-dashoffset: 40;
+                            animation: drawBoxPart1 1s forwards;
+                            animation-delay: 2.6s;
+                        }
+
+                        .icon .bottom-right {
+                            stroke-dasharray: 40;
+                            stroke-dashoffset: 40;
+                            animation: drawBoxPart2 1s forwards;
+                            animation-delay: 2.8s;
+                        }
+
+                        .check {
+                            stroke: white;
+                            stroke-width: 1.5;
+                            fill: none;
+                            stroke-dasharray: 30;
+                            stroke-dashoffset: 30;
+                            animation: drawCheck 0.5s forwards;
+                            animation-delay: 3s;
+                        }
+
+                        .icon:hover line, .icon:hover .check {
+                            stroke: #3498db;
+                            transition: stroke 0.3s ease;
+                            cursor: pointer;
+                        }
+
+                        .linkedin {
+                            opacity: 0;
+                            animation: fadeIn 1.5s ease-in-out forwards;
+                            animation-delay: 1s;
+                        }
+                    </style>
+                </defs>
+                <rect x="10" y="10" width="400" height="230" rx="0" ry="0" fill="url(#grad)"/>
+                <g id="stars">
+                    <circle class="twinkling-star" cx="50" cy="30" r="1.1" style="animation-delay: 0s;"/>
+                    <circle class="twinkling-star" cx="300" cy="50" r="1.3" style="animation-delay: 1s;"/>
+                    <circle class="twinkling-star" cx="290" cy="30" r="1" style="animation-delay: 2s;"/>
+                    <circle class="twinkling-star" cx="240" cy="100" r="1.4" style="animation-delay: 3s;"/>
+                    <circle class="twinkling-star" cx="370" cy="140" r="1.5" style="animation-delay: 4s;"/>
+                </g>
+                <text id="svgName" class="name" x="50" y="60">Jayzean Beorn</text>
+                <text id="svgJob" class="job" x="50" y="90">Software Engineer - Associate</text>
+                <text id="svgCompany" class="company" x="50" y="115">Moubee Co,. Ltd.</text>
+                <g transform="translate(45, 135)">
+                    <text id="svgAddress" class="address" x="30" y="13">San Francisco, CA</text>
+                    <path class="address-icon"
+                          d="M12 2C8.686 2 6 4.686 6 8C6 12.627 12 21 12 21C12 21 18 12.627 18 8C18 4.686 15.314 2 12 2zM12 10C10.895 10 10 9.105 10 8C10 6.895 10.895 6 12 6C13.105 6 14 6.895 14 8C14 9.105 13.105 10 12 10z"/>
+                </g>
+                <text id="svgAbout" class="about" x="50" y="190">About Me</text>
+                <text id="svgAboutContent" class="about-content" x="50" y="210">Design is so hard..
+                </text>
+                <a id="svgEmail" href="mailto:john@example.com">
+                    <g class="icon" transform="translate(377, 20) rotate(45)">
+                        <rect x="-5" y="-5" width="30" height="30" fill="transparent" pointer-events="all"/>
+                        <line class="top-left" x1="-0.5" y1="0.5" x2="20.5" y2="0.5"/>
+                        <line class="top-left" x1="0" y1="0" x2="0" y2="15"/>
+                        <line class="bottom-right" x1="-0.5" y1="14.5" x2="20.5" y2="14.5"/>
+                        <line class="bottom-right" x1="20" y1="0" x2="20" y2="15"/>
+                        <polyline class="check" points="0.5,0.5 10,10 19.5,1"/>
+                    </g>
+                </a>
+
+                <g transform="translate(340, 180) scale(1)">
+                    <a id="svgLinkedin" href="https://linkedin.com/">
+                        <g class="linkedin">
+                            <path fill="#c37d16"
+                                  d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"/>
+                            <path fill="#FFF"
+                                  d="M12 19H17V36H12zM14.485 17h-.028C12.965 17 12 15.888 12 14.499 12 13.08 12.995 12 14.514 12c1.521 0 2.458 1.08 2.486 2.499C17 15.887 16.035 17 14.485 17zM36 36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99C24.957 25.543 25 26.511 25 27v9h-5V19h5v2.616C25.721 20.5 26.85 19 29.738 19c3.578 0 6.261 2.25 6.261 7.274L36 36z"/>
+                        </g>
+                    </a>
+                </g>
+            </svg>
+            <button type="button" id="restartAnimation">PREVIEW</button>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Jayzean Beorn" value="Jayzean Beorn"
-               autocomplete="off" maxlength="20">
-      </div>
-      <div class="form-group">
-        <label for="job">Job</label>
-        <input type="text" id="job" name="job" placeholder="Software Engineer - Associate"
-               value="Software Engineer - Associate" autocomplete="off" maxlength="34">
-      </div>
-      <div class="form-group">
-        <label for="company">Company</label>
-        <input type="text" id="company" name="company" placeholder="Moubee Co,. Ltd." value="Moubee Co,. Ltd."
-               autocomplete="off" maxlength="34">
-      </div>
-      <div class="form-group">
-        <label for="address">Address</label>
-        <input type="text" id="address" name="address" placeholder="San Francisco, CA"
-               value="San Francisco, CA" autocomplete="off" maxlength="40">
-      </div>
-      <div class="form-group">
-        <label for="about">About Me</label>
-        <input id="about" name="about" rows="3" placeholder="Design is so hard.."
-               value="Design is so hard.." autocomplete="off" maxlength="34">
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="john@example.com"
-               autocomplete="off" value="john@example.com" maxlength="40">
-      </div>
-      <div class="form-group">
-        <label for="linkedin">LinkedIn URL</label>
-        <input type="url" id="linkedin" name="linkedin"
-               placeholder="https://linkedin.com/in/username"
-               value="https://linkedin.com/in/johndoe" autocomplete="off" maxlength="200">
-      </div>
-    </form>
-
-    <div id="svgPreview" class="no-animation">
-      <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="grad" gradientTransform="rotate(45)">
-            <stop id="stopTheme1" offset="0%" style="stop-color:#101010; stop-opacity:1"/>
-            <stop id="stopTheme2" offset="100%" style="stop-color:#2c3e50; stop-opacity:1"/>
-          </linearGradient>
-          <style>
-            @keyframes fadeIn {
-              from {
-                opacity: 0;
-                transform: translateY(10px);
-              }
-              to {
-                opacity: 1;
-                transform: translateY(0);
-              }
-            }
-
-            @keyframes drawBoxPart1 {
-              0% {
-                stroke-dasharray: 0 40;
-              }
-              100% {
-                stroke-dasharray: 40 0;
-              }
-            }
-
-            @keyframes drawBoxPart2 {
-              0% {
-                stroke-dasharray: 0 40;
-              }
-              100% {
-                stroke-dasharray: 40 0;
-              }
-            }
-
-            @keyframes drawCheck {
-              0% {
-                stroke-dasharray: 0 30;
-              }
-              100% {
-                stroke-dasharray: 30 0;
-              }
-            }
-
-            @keyframes twinkle {
-              0% {
-                opacity: 0.2;
-              }
-              50% {
-                opacity: 1;
-              }
-              100% {
-                opacity: 0.2;
-              }
-            }
-
-            .twinkling-star {
-              fill: white;
-              opacity: 0.2;
-              animation: twinkle 2s infinite alternate;
-            }
-
-            text {
-              font-family: "Open Sans", sans-serif;
-              fill: white;
-              font-size: 22px;
-              opacity: 0;
-              animation: fadeIn 1s ease-in-out forwards;
-              dominant-baseline: middle;
-            }
-
-            text.name {
-              font-size: 30px;
-              font-weight: bold;
-              animation: fadeIn 0.5s ease-in-out forwards;
-              animation-delay: 0.6s;
-            }
-
-            text.job {
-              font-size: 18px;
-              animation: fadeIn 0.5s ease-in-out forwards;
-              animation-delay: 1s;
-            }
-
-            text.company {
-              font-size: 18px;
-              animation: fadeIn 0.5s ease-in-out forwards;
-              animation-delay: 1.2s;
-            }
-
-            text.address {
-              fill: #777777;
-              font-size: 15px;
-              animation: fadeIn 0.5s ease-in-out forwards;
-              animation-delay: 1.4s;
-            }
-
-            text.about {
-              fill: white;
-              font-size: 22px;
-              animation: fadeIn 0.5s ease-in-out forwards;
-              animation-delay: 1.8s;
-            }
-
-            text.about-content {
-              fill: #979696;
-              font-size: 15px;
-              animation: fadeIn 0.5s ease-in-out forwards;
-              animation-delay: 1.9s;
-            }
-
-            .address-icon {
-              fill: #777777;
-              opacity: 0;
-              animation: fadeIn 0.5s ease-in-out forwards;
-              animation-delay: 1.5s;
-            }
-
-            .icon line {
-              stroke: white;
-              stroke-width: 1.5;
-              fill: none;
-            }
-
-            .icon .top-left {
-              stroke-dasharray: 40;
-              stroke-dashoffset: 40;
-              animation: drawBoxPart1 1s forwards;
-              animation-delay: 2.6s;
-            }
-
-            .icon .bottom-right {
-              stroke-dasharray: 40;
-              stroke-dashoffset: 40;
-              animation: drawBoxPart2 1s forwards;
-              animation-delay: 2.8s;
-            }
-
-            .check {
-              stroke: white;
-              stroke-width: 1.5;
-              fill: none;
-              stroke-dasharray: 30;
-              stroke-dashoffset: 30;
-              animation: drawCheck 0.5s forwards;
-              animation-delay: 3s;
-            }
-
-            .icon:hover line, .icon:hover .check {
-              stroke: #3498db;
-              transition: stroke 0.3s ease;
-              cursor: pointer;
-            }
-
-            .linkedin {
-              opacity: 0;
-              animation: fadeIn 1.5s ease-in-out forwards;
-              animation-delay: 1s;
-            }
-          </style>
-        </defs>
-        <rect x="10" y="10" width="400" height="230" rx="0" ry="0" fill="url(#grad)"/>
-        <g id="stars">
-          <circle class="twinkling-star" cx="50" cy="30" r="1.1" style="animation-delay: 0s;"/>
-          <circle class="twinkling-star" cx="300" cy="50" r="1.3" style="animation-delay: 1s;"/>
-          <circle class="twinkling-star" cx="290" cy="30" r="1" style="animation-delay: 2s;"/>
-          <circle class="twinkling-star" cx="240" cy="100" r="1.4" style="animation-delay: 3s;"/>
-          <circle class="twinkling-star" cx="370" cy="140" r="1.5" style="animation-delay: 4s;"/>
-        </g>
-        <text id="svgName" class="name" x="50" y="60">Jayzean Beorn</text>
-        <text id="svgJob" class="job" x="50" y="90">Software Engineer - Associate</text>
-        <text id="svgCompany" class="company" x="50" y="115">Moubee Co,. Ltd.</text>
-        <g transform="translate(45, 135)">
-          <text id="svgAddress" class="address" x="30" y="13">San Francisco, CA</text>
-          <path class="address-icon"
-                d="M12 2C8.686 2 6 4.686 6 8C6 12.627 12 21 12 21C12 21 18 12.627 18 8C18 4.686 15.314 2 12 2zM12 10C10.895 10 10 9.105 10 8C10 6.895 10.895 6 12 6C13.105 6 14 6.895 14 8C14 9.105 13.105 10 12 10z"/>
-        </g>
-        <text id="svgAbout" class="about" x="50" y="190">About Me</text>
-        <text id="svgAboutContent" class="about-content" x="50" y="210">Design is so hard..
-        </text>
-        <a id="svgEmail" href="mailto:john@example.com">
-          <g class="icon" transform="translate(377, 20) rotate(45)">
-            <rect x="-5" y="-5" width="30" height="30" fill="transparent" pointer-events="all"/>
-            <line class="top-left" x1="-0.5" y1="0.5" x2="20.5" y2="0.5"/>
-            <line class="top-left" x1="0" y1="0" x2="0" y2="15"/>
-            <line class="bottom-right" x1="-0.5" y1="14.5" x2="20.5" y2="14.5"/>
-            <line class="bottom-right" x1="20" y1="0" x2="20" y2="15"/>
-            <polyline class="check" points="0.5,0.5 10,10 19.5,1"/>
-          </g>
-        </a>
-
-        <g transform="translate(340, 180) scale(1)">
-          <a id="svgLinkedin" href="https://linkedin.com/">
-            <g class="linkedin">
-              <path fill="#c37d16"
-                    d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"/>
-              <path fill="#FFF"
-                    d="M12 19H17V36H12zM14.485 17h-.028C12.965 17 12 15.888 12 14.499 12 13.08 12.995 12 14.514 12c1.521 0 2.458 1.08 2.486 2.499C17 15.887 16.035 17 14.485 17zM36 36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99C24.957 25.543 25 26.511 25 27v9h-5V19h5v2.616C25.721 20.5 26.85 19 29.738 19c3.578 0 6.261 2.25 6.261 7.274L36 36z"/>
-            </g>
-          </a>
-        </g>
-      </svg>
-      <button type="button" id="restartAnimation">PREVIEW</button>
     </div>
-  </div>
 
-  <div id="generatedLink">
-    <div class="link-section" id="markdownSection">
-      <span class="label">MARKDOWN</span>
-      <div id="linkContainerMarkdown"></div>
-      <button type="button" class="copy-btn" onclick="copyToClipboard('linkContainerMarkdown')">
-        COPY
-      </button>
+    <div id="generatedLink">
+        <div class="link-section" id="markdownSection">
+            <span class="label">MARKDOWN</span>
+            <div id="linkContainerMarkdown"></div>
+            <button type="button" class="copy-btn" onclick="copyToClipboard('linkContainerMarkdown')">
+                COPY
+            </button>
+        </div>
+        <div class="link-section" id="htmlLinkSection">
+            <span class="label">HTML LINK</span>
+            <div id="linkContainerHtml"></div>
+            <button type="button" class="copy-btn" onclick="copyToClipboard('linkContainerHtml')">COPY
+            </button>
+        </div>
+        <div class="link-section" id="notionSection">
+            <span class="label">EMBED URL (NOTION)</span>
+            <div id="linkContainerNotion"></div>
+            <button type="button" class="copy-btn" onclick="copyToClipboard('linkContainerNotion')">COPY
+            </button>
+        </div>
     </div>
-    <div class="link-section" id="htmlLinkSection">
-      <span class="label">HTML LINK</span>
-      <div id="linkContainerHtml"></div>
-      <button type="button" class="copy-btn" onclick="copyToClipboard('linkContainerHtml')">COPY
-      </button>
-    </div>
-    <div class="link-section" id="notionSection">
-      <span class="label">EMBED URL (NOTION)</span>
-      <div id="linkContainerNotion"></div>
-      <button type="button" class="copy-btn" onclick="copyToClipboard('linkContainerNotion')">COPY
-      </button>
-    </div>
-  </div>
 
-  <div id="footer"></div>
+    <div id="footer"></div>
 </div>
 
 <script>
-  function generateLink() {
-    const params = {
-      theme: document.getElementById('theme').value,
-      name: document.getElementById('name').value,
-      job: document.getElementById('job').value,
-      company: document.getElementById('company').value,
-      address: document.getElementById('address').value,
-      about: document.getElementById('about').value,
-      email: document.getElementById('email').value,
-      linkedin: document.getElementById('linkedin').value
-    };
+    function generateLink() {
+        const params = {
+            theme: document.getElementById('theme').value,
+            name: document.getElementById('name').value,
+            job: document.getElementById('job').value,
+            company: document.getElementById('company').value,
+            address: document.getElementById('address').value,
+            about: document.getElementById('about').value,
+            email: document.getElementById('email').value,
+            linkedin: document.getElementById('linkedin').value
+        };
 
-    const queryString = Object.keys(params)
-    .map(key => key + '=' + encodeURIComponent(params[key]))
-    .join('&');
+        const queryString = Object.keys(params)
+            .map(key => key + '=' + encodeURIComponent(params[key]))
+            .join('&');
 
-    const baseUrl = 'https://criminal-vivyanne-lucidus-346ca075.koyeb.app/lucidus/card_v1?';
-    const fullUrl = baseUrl + queryString;
+        const baseUrl = 'https://criminal-vivyanne-lucidus-346ca075.koyeb.app/lucidus/card_v1?';
+        const fullUrl = baseUrl + queryString;
 
-    const markdown = '![Lucidus](' + fullUrl + ')';
-    const htmllink = '<object type="image/svg+xml" data=' + '"'+ fullUrl + '"'+'></object>';
-    const notion = fullUrl;
+        const markdown = '![Lucidus](' + fullUrl + ')';
+        const htmllink = '<object type="image/svg+xml" data=' + '"' + fullUrl + '"' + '></object>';
+        const notion = fullUrl;
 
-    document.getElementById('linkContainerMarkdown').textContent = markdown;
-    document.getElementById('linkContainerHtml').textContent = htmllink;
-    document.getElementById('linkContainerNotion').textContent = notion;
-  }
-
-  function updateSvg() {
-    const selectedThemeElement = document.querySelector('.theme-option.selected');
-    const theme = selectedThemeElement ? selectedThemeElement.getAttribute('data-theme') : 'dark';
-    //const theme = document.getElementById('theme').value || 'dark';
-    const themes = {
-      dark: ["#101010", "#2c3e50"],
-      blue: ["#101010", "#29539B"],
-      purple: ["#101010", "#923CB5"],
-      cosmic: ["#0D324D", "#524053"],
-      green: ["#213529", "#104b27"]
-    };
-    const [theme1, theme2] = themes[theme];
-
-    const name = document.getElementById('name').value;
-    const job = document.getElementById('job').value;
-    const company = document.getElementById('company').value;
-    const address = document.getElementById('address').value;
-    const about = document.getElementById('about').value;
-    const email = document.getElementById('email').value;
-    const linkedin = document.getElementById('linkedin').value;
-
-    document.getElementById('stopTheme1').setAttribute('style',
-        'stop-color:' + theme1 + '; stop-opacity:1');
-    document.getElementById('stopTheme2').setAttribute('style',
-        'stop-color:' + theme2 + '; stop-opacity:1');
-
-    document.getElementById('svgName').textContent = name;
-    document.getElementById('svgJob').textContent = job;
-    document.getElementById('svgCompany').textContent = company;
-    document.getElementById('svgAddress').textContent = address;
-    document.getElementById('svgAboutContent').textContent = about;
-
-    document.getElementById('svgEmail').setAttribute('href', 'mailto:' + email);
-    document.getElementById('svgLinkedin').setAttribute('href', linkedin);
-
-    generateLink();
-  }
-
-  const inputs = document.querySelectorAll('#svgForm input, #svgForm select');
-  inputs.forEach(input => {
-    input.addEventListener('input', updateSvg);
-    input.addEventListener('change', updateSvg);
-    input.addEventListener('keyup', updateSvg);
-    input.addEventListener('blur', updateSvg);
-  });
-
-  function copyToClipboard(containerId) {
-    const container = document.getElementById(containerId);
-    const text = container.textContent.trim();
-
-    navigator.clipboard.writeText(text).then(() => {
-      const button = container.parentElement.querySelector(".copy-btn");
-      const originalText = button.textContent;
-
-      button.textContent = "COPIED!";
-      button.classList.add("copied");
-
-      setTimeout(() => {
-        button.textContent = originalText;
-        button.classList.remove("copied");
-      }, 1500);
-    }).catch(err => {
-      console.error("copy fail: ", err);
-    });
-  }
-
-  function startSvgAnimation() {
-    const svgContainer = document.getElementById('svgPreview');
-    const oldSvg = svgContainer.querySelector('svg');
-    if (oldSvg) {
-      svgContainer.classList.remove('no-animation');
-      const newSvg = oldSvg.cloneNode(true);
-      svgContainer.replaceChild(newSvg, oldSvg);
+        document.getElementById('linkContainerMarkdown').textContent = markdown;
+        document.getElementById('linkContainerHtml').textContent = htmllink;
+        document.getElementById('linkContainerNotion').textContent = notion;
     }
-  }
 
-  document.querySelectorAll('.theme-option').forEach(option => {
-  option.addEventListener('click', function() {
-    document.querySelectorAll('.theme-option').forEach(opt => opt.classList.remove('selected'));
-    this.classList.add('selected');
-    document.getElementById('theme').value = this.getAttribute('data-theme');
-    updateSvg();
-  });
-});
+    function updateSvg() {
+        const selectedThemeElement = document.querySelector('.theme-option.selected');
+        const theme = selectedThemeElement ? selectedThemeElement.getAttribute('data-theme') : 'dark';
+        //const theme = document.getElementById('theme').value || 'dark';
+        const themes = {
+            dark: ["#101010", "#2c3e50"],
+            blue: ["#101010", "#29539B"],
+            purple: ["#101010", "#923CB5"],
+            cosmic: ["#0D324D", "#524053"],
+            green: ["#213529", "#104b27"]
+        };
+        const [theme1, theme2] = themes[theme];
 
-  document.getElementById('restartAnimation').addEventListener('click', function () {
-    startSvgAnimation();
-  });
+        const name = document.getElementById('name').value;
+        const job = document.getElementById('job').value;
+        const company = document.getElementById('company').value;
+        const address = document.getElementById('address').value;
+        const about = document.getElementById('about').value;
+        const email = document.getElementById('email').value;
+        const linkedin = document.getElementById('linkedin').value;
 
-  window.addEventListener('DOMContentLoaded', () => {
-    updateSvg();
-    startSvgAnimation();
-  });
+        document.getElementById('stopTheme1').setAttribute('style',
+            'stop-color:' + theme1 + '; stop-opacity:1');
+        document.getElementById('stopTheme2').setAttribute('style',
+            'stop-color:' + theme2 + '; stop-opacity:1');
+
+        document.getElementById('svgName').textContent = name;
+        document.getElementById('svgJob').textContent = job;
+        document.getElementById('svgCompany').textContent = company;
+        document.getElementById('svgAddress').textContent = address;
+        document.getElementById('svgAboutContent').textContent = about;
+
+        document.getElementById('svgEmail').setAttribute('href', 'mailto:' + email);
+        document.getElementById('svgLinkedin').setAttribute('href', linkedin);
+
+        generateLink();
+    }
+
+    const inputs = document.querySelectorAll('#svgForm input, #svgForm select');
+    inputs.forEach(input => {
+        input.addEventListener('input', updateSvg);
+        input.addEventListener('change', updateSvg);
+        input.addEventListener('keyup', updateSvg);
+        input.addEventListener('blur', updateSvg);
+    });
+
+    function copyToClipboard(containerId) {
+        const container = document.getElementById(containerId);
+        const text = container.textContent.trim();
+
+        navigator.clipboard.writeText(text).then(() => {
+            const button = container.parentElement.querySelector(".copy-btn");
+            const originalText = button.textContent;
+
+            button.textContent = "COPIED!";
+            button.classList.add("copied");
+
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove("copied");
+            }, 1500);
+        }).catch(err => {
+            console.error("copy fail: ", err);
+        });
+    }
+
+    function startSvgAnimation() {
+        const svgContainer = document.getElementById('svgPreview');
+        const oldSvg = svgContainer.querySelector('svg');
+        if (oldSvg) {
+            svgContainer.classList.remove('no-animation');
+            const newSvg = oldSvg.cloneNode(true);
+            svgContainer.replaceChild(newSvg, oldSvg);
+        }
+    }
+
+    document.querySelectorAll('.theme-option').forEach(option => {
+        option.addEventListener('click', function () {
+            document.querySelectorAll('.theme-option').forEach(opt => opt.classList.remove('selected'));
+            this.classList.add('selected');
+            document.getElementById('theme').value = this.getAttribute('data-theme');
+            updateSvg();
+        });
+    });
+
+    document.getElementById('restartAnimation').addEventListener('click', function () {
+        startSvgAnimation();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        updateSvg();
+        startSvgAnimation();
+    });
 </script>
 </body>
 </html>
