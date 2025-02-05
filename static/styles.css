@@ -1,6 +1,36 @@
 @import url('https://fonts.cdnfonts.com/css/mono-sans');
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
+
+#themeInputWrapper {
+  padding: 10px;
+  background-color: #100a1c;
+  border: 2px solid rgb(119, 118, 118);
+  border-radius: 5px;
+}
+
+#themePicker {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.theme-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid rgb(119, 118, 118);
+  transition: border-color 0.3s;
+}
+
+
+.theme-option.selected {
+  border-color: #71efbd;
+}
+
+
 #topHeader {
   width: 100%;
   padding: 10px 20px;
