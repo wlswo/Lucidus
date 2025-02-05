@@ -141,7 +141,7 @@ def generate_card(data: dict):
           
       .address-icon { 
         fill: #777777;
-        opacity: 0; /* 초기 상태에서 숨김 */
+        opacity: 0;
         animation: fadeIn 0.5s ease-in-out forwards; animation-delay: 1.5s;
       }
 
