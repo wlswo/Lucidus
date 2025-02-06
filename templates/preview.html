@@ -7,8 +7,7 @@
           content="🚀 An easy way to create and share business cards. A simple API that generates dynamic SVG business cards on the fly 🪪">
     <meta property="og:url" content="https://criminal-vivyanne-lucidus-346ca075.koyeb.app/lucidus/">
     <meta property="og:type" content="website">
-    <meta property="og:image"
-          content="https://criminal-vivyanne-lucidus-346ca075.koyeb.app/lucidus/card_v1?theme=cosmic&name=Lucidus%20C.%20Kahlid&job=Software%20Engineer%20-%20Associate&company=Lucidus%20Co%2C.%20Ltd.&address=San%20Francisco%2C%20CA&about=Design%20is%20so%20hard..&email=john%40example.com&linkedin=https%3A%2F%2Flinkedin.com%2Fin%2Fjohndoe">
+    <meta property="og:image" content="{{ url_for('static', path='/icon/thumbnail.png') }}">
 
     <title>Lucidus</title>
     <link rel="icon" href="{{ url_for('static', path='/icon/icon.png') }}">
@@ -55,7 +54,7 @@
             </div>
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Jayzean Beorn" value="Jayzean Beorn"
+                <input type="text" id="name" name="name" placeholder="Adam Roberts" value="Adam Roberts"
                        autocomplete="off" maxlength="20">
             </div>
             <div class="form-group">
@@ -65,7 +64,7 @@
             </div>
             <div class="form-group">
                 <label for="company">Company</label>
-                <input type="text" id="company" name="company" placeholder="Moubee Co,. Ltd." value="Moubee Co,. Ltd."
+                <input type="text" id="company" name="company" placeholder="Megle Co,. Ltd." value="Megle Co,. Ltd."
                        autocomplete="off" maxlength="34">
             </div>
             <div class="form-group">
@@ -262,9 +261,9 @@
                     <circle class="twinkling-star" cx="240" cy="100" r="1.4" style="animation-delay: 3s;"/>
                     <circle class="twinkling-star" cx="370" cy="140" r="1.5" style="animation-delay: 4s;"/>
                 </g>
-                <text id="svgName" class="name" x="50" y="60">Jayzean Beorn</text>
+                <text id="svgName" class="name" x="50" y="60">Adam Roberts</text>
                 <text id="svgJob" class="job" x="50" y="90">Software Engineer - Associate</text>
-                <text id="svgCompany" class="company" x="50" y="115">Moubee Co,. Ltd.</text>
+                <text id="svgCompany" class="company" x="50" y="115">Megle Co,. Ltd.</text>
                 <g transform="translate(45, 135)">
                     <text id="svgAddress" class="address" x="30" y="13">San Francisco, CA</text>
                     <path class="address-icon"
@@ -356,7 +355,7 @@
     function updateSvg() {
         const selectedThemeElement = document.querySelector('.theme-option.selected');
         const theme = selectedThemeElement ? selectedThemeElement.getAttribute('data-theme') : 'dark';
-        //const theme = document.getElementById('theme').value || 'dark';
+
         const themes = {
             dark: ["#101010", "#2c3e50"],
             blue: ["#101010", "#29539B"],

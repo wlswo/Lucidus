@@ -7,41 +7,41 @@ from api import constants
 
 
 def custom_escape(text: str) -> str:
-  if not isinstance(text, str):
-    return text
-  # Default XML Escape Character : &, <, >, @ Replace
-  escaped = escape(text).replace("@", "&#64;")
+    if not isinstance(text, str):
+        return text
+    # Default XML Escape Character : &, <, >, @ Replace
+    escaped = escape(text).replace("@", "&#64;")
 
-  return escaped
+    return escaped
 
 
 def validation(data: dict):
-  """
-  Data validation function
-  - Limits field length to 80 characters
-  """
-  MAX_LENGTH = 80
+    """
+    Data validation function
+    - Limits field length to 80 characters
+    """
+    MAX_LENGTH = 80
 
-  for field, value in data.items():
+    for field, value in data.items():
 
-    # Check if the field value exceeds 80 characters
-    if len(value) > MAX_LENGTH:
-      raise HTTPException(status_code=400,
-                          detail=f"'{field}' field exceeds the maximum length of 80 characters.")
+        # Check if the field value exceeds 80 characters
+        if len(value) > MAX_LENGTH:
+            raise HTTPException(status_code=400,
+                                detail=f"'{field}' field exceeds the maximum length of 80 characters.")
 
 
 def get_theme(theme):
-  return constants.theme.get(theme.strip().lower(), constants.theme["dark"])
+    return constants.theme.get(theme.strip().lower(), constants.theme["dark"])
 
 
 def generate_card(data: dict):
-  validation(data)
+    validation(data)
 
-  escaped_data = {k: custom_escape(v) if isinstance(v, str) else v for k, v in
-                  data.items()}
-  theme = get_theme(escaped_data.get("theme", "dark"))
+    escaped_data = {key: custom_escape(value) if isinstance(value, str) else value for key, value in
+                    data.items()}
+    theme = get_theme(escaped_data.get("theme", "dark"))
 
-  svg = Template('''
+    svg = Template('''
     <!DOCTYPE svg PUBLIC
         "-//W3C//DTD SVG 1.1//EN"
         "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -229,15 +229,15 @@ def generate_card(data: dict):
     </g>
   </a>
 </svg>''').safe_substitute(
-      theme1=theme[0],
-      theme2=theme[1],
-      name=escaped_data.get("name"),
-      job=escaped_data.get("job"),
-      company=escaped_data.get("company"),
-      address=escaped_data.get("address"),
-      about=escaped_data.get("about"),
-      email=escaped_data.get("email"),
-      linkedin=escaped_data.get("linkedin")
-  )
+        theme1=theme[0],
+        theme2=theme[1],
+        name=escaped_data.get("name"),
+        job=escaped_data.get("job"),
+        company=escaped_data.get("company"),
+        address=escaped_data.get("address"),
+        about=escaped_data.get("about"),
+        email=escaped_data.get("email"),
+        linkedin=escaped_data.get("linkedin")
+    )
 
-  return svg
+    return svg
