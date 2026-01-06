@@ -37,7 +37,7 @@ async def get_svg(
         "email": email,
         "linkedin": linkedin
     }
-    card_svg = utils.generate_card(data=data)
+    card_svg = utils.generate_card_v1(data=data)
     response = Response(content=card_svg, media_type="image/svg+xml")
     return response
 
