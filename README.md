@@ -14,12 +14,12 @@ Lucidus is a service that allows users to easily create and share digital busine
 Users can quickly generate beautifully crafted SVG-format business cards without any design skills.
 
 
+![Lucidus](https://criminal-vivyanne-lucidus-346ca075.koyeb.app/lucidus/card_v2?name=Justin%20Park&job=Software%20Engineer%20-%20Associate&company=Lucidus%20Co.&address=San%20Francisco%2C%20CA&about=Powered%20by%20caffeine%20and%20anxiety.&linkedin=https%3A%2F%2Flinkedin.com%2Fin%2Fjohndoe&github=https%3A%2F%2Fgithub.com%2Fwlswo%2Flucidus)
 ![Lucidus](https://criminal-vivyanne-lucidus-346ca075.koyeb.app/lucidus/card_v1?theme=dark&name=Lucidus%20Aurelius&job=Software%20Engineer%20-%20Associate&company=Moubee%20Co%2C.%20Ltd.&address=San%20Francisco%2C%20CA&about=Design%20is%20so%20hard..&email=john%40example.com&linkedin=https%3A%2F%2Flinkedin.com%2Fin%2Fjohndoe)
 ![Lucidus](https://criminal-vivyanne-lucidus-346ca075.koyeb.app/lucidus/card_v1?theme=blue&name=Lucidus%20Aurelius&job=Software%20Engineer%20-%20Associate&company=Moubee%20Co%2C.%20Ltd.&address=San%20Francisco%2C%20CA&about=Design%20is%20so%20hard..&email=john%40example.com&linkedin=https%3A%2F%2Flinkedin.com%2Fin%2Fjohndoe)
 ![Lucidus](https://criminal-vivyanne-lucidus-346ca075.koyeb.app/lucidus/card_v1?theme=purple&name=Lucidus%20Aurelius&job=Software%20Engineer%20-%20Associate&company=Moubee%20Co%2C.%20Ltd.&address=San%20Francisco%2C%20CA&about=Design%20is%20so%20hard..&email=john%40example.com&linkedin=https%3A%2F%2Flinkedin.com%2Fin%2Fjohndoe)
 ![Lucidus](https://criminal-vivyanne-lucidus-346ca075.koyeb.app/lucidus/card_v1?theme=cosmic&name=Lucidus%20Aurelius&job=Software%20Engineer%20-%20Associate&company=Moubee%20Co%2C.%20Ltd.&address=San%20Francisco%2C%20CA&about=Design%20is%20so%20hard..&email=john%40example.com&linkedin=https%3A%2F%2Flinkedin.com%2Fin%2Fjohndoe)
 ![Lucidus](https://criminal-vivyanne-lucidus-346ca075.koyeb.app/lucidus/card_v1?theme=green&name=Lucidus%20Aurelius&job=Software%20Engineer%20-%20Associate&company=Moubee%20Co%2C.%20Ltd.&address=San%20Francisco%2C%20CA&about=Design%20is%20so%20hard..&email=john%40example.com&linkedin=https%3A%2F%2Flinkedin.com%2Fin%2Fjohndoe)
-
 
 
 
