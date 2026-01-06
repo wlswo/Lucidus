@@ -40,3 +40,26 @@ async def get_svg(
     card_svg = utils.generate_card(data=data)
     response = Response(content=card_svg, media_type="image/svg+xml")
     return response
+
+@router.get("/card_v2")
+async def get_svg(
+        name: Optional[str] = Query(default=""),
+        job: Optional[str] = Query(default=""),
+        company: Optional[str] = Query(default=""),
+        address: Optional[str] = Query(default=""),
+        about: Optional[str] = Query(default=""),
+        github: Optional[str] = Query(default="https://www.github.com"),
+        linkedin: Optional[str] = Query(default=""),
+):
+    data = {
+        "name": name,
+        "job": job,
+        "company": company,
+        "address": address,
+        "about": about,
+        "github": github,
+        "linkedin": linkedin
+    }
+    card_svg = utils.generate_card_v2(data=data)
+    response = Response(content=card_svg, media_type="image/svg+xml")
+    return response

@@ -25,7 +25,6 @@
     font-size: 35px;
 }
 
-
 body {
     margin: 0;
     padding: 0;
@@ -39,7 +38,6 @@ body {
     color: white;
     text-align: center;
 }
-
 
 .container {
     max-width: 1000px;
@@ -61,7 +59,7 @@ h1 {
     -webkit-text-fill-color: transparent;
     color: #8c5059;
     font-weight: 500;
-    margin: 0 auto 6em;
+    margin: 0 auto 60px;
     max-width: 1000px;
     text-align: center;
     font-size: 22px;
@@ -260,12 +258,16 @@ button:hover {
 
 #svgPreview {
     flex: 1;
-    flex-direction: column;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 400px;
     margin-right: 25px;
+}
+
+.hidden {
+    display: none !important;
 }
 
 #restartAnimation {
@@ -285,4 +287,60 @@ button:hover {
 
 #footer {
     height: 150px;
+}
+
+/* 모드 선택 영역 위치 조정 */
+.mode-selection {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 0;
+    margin-bottom: 60px;
+}
+
+.mode-btn {
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: bold;
+    color: #949292;
+
+    width: 120px;
+    height: 45px;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 8px;
+
+    border: 2px solid #6f6e6e;
+    box-shadow: 4px 4px 0px #6f6e6e;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.mode-btn:hover {
+    color: #ffffff;
+    border-color: #999;
+    box-shadow: 4px 4px 0px #999;
+    transform: translate(-1px, -1px);
+}
+
+.mode-btn.selected {
+    color: #100a1c;
+    background-color: #71efbd;
+    border-color: #71efbd;
+
+    box-shadow: 0px 0px 0px transparent;
+    transform: translate(4px, 4px);
+}
+
+.mode-btn.selected:hover {
+    background-color: #5edcb8;
+    border-color: #5edcb8;
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+.hidden {
+    display: none !important;
 }
