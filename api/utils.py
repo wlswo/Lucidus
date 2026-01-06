@@ -6,7 +6,7 @@ from fastapi import HTTPException
 from api import constants
 
 
-def custom_escape(text: str) -> str:
+def replace_custom_escape(text: str) -> str:
     if not isinstance(text, str):
         return text
     # Default XML Escape Character : &, <, >, @ Replace
@@ -34,10 +34,10 @@ def get_theme(theme):
     return constants.theme.get(theme.strip().lower(), constants.theme["dark"])
 
 
-def generate_card(data: dict):
+def generate_card_v1(data: dict):
     validation(data)
 
-    escaped_data = {key: custom_escape(value) if isinstance(value, str) else value for key, value in
+    escaped_data = {key: replace_custom_escape(value) if isinstance(value, str) else value for key, value in
                     data.items()}
     theme = get_theme(escaped_data.get("theme", "dark"))
 
@@ -246,7 +246,7 @@ def generate_card(data: dict):
 def generate_card_v2(data: dict):
     validation(data)
 
-    escaped_data = {key: custom_escape(value) if isinstance(value, str) else value for key, value in
+    escaped_data = {key: replace_custom_escape(value) if isinstance(value, str) else value for key, value in
                     data.items()}
 
     svg = Template('''
