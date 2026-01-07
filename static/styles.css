@@ -435,14 +435,27 @@ button:hover {
         margin-right: 0;
         width: 100%;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* This centers the form-groups */
+        gap: 18px;
     }
 
     label {
         font-size: 13px; /* Further reduced font size */
     }
 
+    .form-group {
+        position: relative;
+        width: 90%; /* Let's make the container 90% */
+        max-width: 350px; /* Keep the max-width */
+        margin-bottom: 20px;
+    }
+
     input, select {
-        font-size: 14px; /* Further reduced font size */
+        font-size: 14px;
+        width: 100%; /* Input should fill the form-group */
+        box-sizing: border-box;
     }
 
     .mode-btn {
