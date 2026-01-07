@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Lucidus">
     <meta property="og:description"
           content="🚀 An easy way to create and share business cards. A simple API that generates dynamic SVG business cards on the fly 🪪">
@@ -21,7 +22,7 @@
         <div class="github-star">
             <iframe
                     src="https://ghbtns.com/github-btn.html?user=wlswo&repo=lucidus&type=star&count=true&size=large"
-                    frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+                    frameborder="0" scrolling="0" width="140" height="30" title="GitHub"></iframe>
         </div>
     </div>
 </header>
@@ -106,7 +107,8 @@
                 <label for="linkedinColor">LinkedIn Color</label>
                 <div class="linkedin-color-picker">
                     <div class="linkedin-color-option" data-color="#0077B5" style="background-color: #0077B5;"></div>
-                    <div class="linkedin-color-option selected" data-color="#c37d16" style="background-color: #c37d16;"></div>
+                    <div class="linkedin-color-option selected" data-color="#c37d16"
+                         style="background-color: #c37d16;"></div>
                 </div>
                 <input type="hidden" id="linkedinColor" name="linkedin_color" value="#c37d16">
             </div>
@@ -528,7 +530,7 @@
             </button>
         </div>
         <div class="link-section" id="htmlLinkSection">
-            <span class="label">HTML LINK</span>
+            <span class="label">HTML TAG</span>
             <div id="linkContainerHtml"></div>
             <button type="button" class="copy-btn" onclick="copyToClipboard('linkContainerHtml')">COPY
             </button>

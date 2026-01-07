@@ -383,5 +383,116 @@ button:hover {
 }
 
 
+@media (max-width: 475px) {
+    .container {
+        margin: 50px auto 0;
+        padding: 0 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
 
+    .header-container {
+        padding: 0 10px;
+        box-sizing: border-box;
+        font-size: 24px; /* Further reduced font size */
+    }
 
+    .header-container .logo {
+        flex-shrink: 1; /* Allow logo to shrink */
+        min-width: 0; /* Allow logo to shrink below its content size */
+        margin-right: 0; /* Remove space between logo and star */
+    }
+
+    .header-container .github-star {
+        flex-shrink: 0; /* Prevent star from shrinking */
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    h1 {
+        font-size: 32px; /* Further reduced font size */
+    }
+
+    .intro {
+        font-size: 16px; /* Further reduced font size */
+        margin-bottom: 40px;
+    }
+
+    .internal-container {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        border: none;
+        background: none;
+        overflow-x: hidden;
+    }
+
+    .internal-container::before {
+        display: none;
+    }
+
+    form {
+        margin-right: 0;
+        width: 100%;
+        padding: 0;
+    }
+
+    label {
+        font-size: 13px; /* Further reduced font size */
+    }
+
+    input, select {
+        font-size: 14px; /* Further reduced font size */
+    }
+
+    .mode-btn {
+        font-size: 14px; /* Further reduced font size */
+    }
+
+    #svgPreview {
+        margin-right: 0;
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    #svgPreview svg {
+        width: 100%;
+        height: auto;
+    }
+
+    #generatedLink {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    /* Redesigned Link Section for Mobile */
+    .link-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px; /* Reduced padding */
+        margin: 10px 0; /* Reduced margin */
+        min-height: auto; /* Remove min-height */
+    }
+
+    #linkContainerMarkdown,
+    #linkContainerHtml,
+    #linkContainerNotion {
+        display: none; /* Keep URL text hidden */
+    }
+
+    .link-section .label {
+        position: static; /* Remove absolute positioning */
+        font-size: 12px; /* Adjusted font size */
+    }
+
+    .link-section .copy-btn {
+        position: static; /* Remove absolute positioning */
+        font-size: 10px; /* Adjusted font size */
+        width: auto; /* Auto width */
+        height: auto; /* Auto height */
+        padding: 8px 12px;
+    }
+}
