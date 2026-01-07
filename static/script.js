@@ -18,7 +18,7 @@ function generateLink() {
         company: document.getElementById('company').value,
         address: document.getElementById('address').value,
         about: document.getElementById('about').value,
-        linkedin: document.getElementById('linkedin').value
+        linkedin: document.getElementById('linkedin').value,
     };
 
     let baseUrl = '';
@@ -26,10 +26,11 @@ function generateLink() {
     if (currentMode === 'galaxy') {
         params.theme = document.getElementById('theme').value;
         params.email = document.getElementById('email').value;
+        params.linkedin_color = document.getElementById('linkedinColor').value;
         baseUrl = 'https://criminal-vivyanne-lucidus-346ca075.koyeb.app/lucidus/card_v1?';
     } else {
         params.github = document.getElementById('github').value; // github 값 사용
-
+        params.linkedin_color = document.getElementById('linkedinColor').value;
         baseUrl = 'https://criminal-vivyanne-lucidus-346ca075.koyeb.app/lucidus/card_v2?';
     }
 
@@ -74,6 +75,7 @@ function updateSvg() {
     const address = document.getElementById('address').value;
     const about = document.getElementById('about').value;
     const linkedin = document.getElementById('linkedin').value;
+    const linkedinColor = document.getElementById('linkedinColor').value;
 
     setTextIfExist('svgName', name);
     setTextIfExist('svgJob', job);
@@ -81,6 +83,11 @@ function updateSvg() {
     setTextIfExist('svgAddress', address);
     setTextIfExist('svgAboutContent', about);
     setAttrIfExist('svgLinkedin', 'href', linkedin);
+    const linkedinIcon = document.querySelector('#svgLinkedin path');
+    if (linkedinIcon) {
+        linkedinIcon.setAttribute('fill', linkedinColor);
+    }
+
 
     setTextIfExist('svgName_metal', name);
     setTextIfExist('svgJob_metal', job);
@@ -88,13 +95,18 @@ function updateSvg() {
     setTextIfExist('svgAddress_metal', address);
     setTextIfExist('svgAboutContent_metal', about);
     setAttrIfExist('svgLinkedin_metal', 'href', linkedin);
+    const linkedinIconMetal = document.querySelector('#svgLinkedin_metal path');
+    if (linkedinIconMetal) {
+        linkedinIconMetal.setAttribute('fill', linkedinColor);
+    }
+
 
     if (currentMode === 'galaxy') {
         const email = document.getElementById('email').value;
         setAttrIfExist('svgEmail', 'href', 'mailto:' + email);
     } else {
         const github = document.getElementById('github').value;
-        setAttrIfExist('svgGithub_metal', 'xlink:href', 'https://github.com/' + github);
+        setAttrIfExist('svgGithub_metal', 'xlink:href', github);
     }
 
     generateLink();
@@ -194,6 +206,15 @@ document.getElementById('btnMetal').addEventListener('click', () => switchMode('
 
 document.getElementById('restartAnimation').addEventListener('click', function () {
     startSvgAnimation();
+});
+
+document.querySelectorAll('.linkedin-color-option').forEach(option => {
+    option.addEventListener('click', function () {
+        document.querySelectorAll('.linkedin-color-option').forEach(opt => opt.classList.remove('selected'));
+        this.classList.add('selected');
+        document.getElementById('linkedinColor').value = this.getAttribute('data-color');
+        updateSvg();
+    });
 });
 
 window.addEventListener('DOMContentLoaded', () => {

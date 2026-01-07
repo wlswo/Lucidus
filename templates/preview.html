@@ -101,6 +101,15 @@
                        placeholder="https://linkedin.com/in/username"
                        value="https://linkedin.com/in/johndoe" autocomplete="off" maxlength="200">
             </div>
+
+            <div class="form-group linkedin-color-group">
+                <label for="linkedinColor">LinkedIn Color</label>
+                <div class="linkedin-color-picker">
+                    <div class="linkedin-color-option" data-color="#0077B5" style="background-color: #0077B5;"></div>
+                    <div class="linkedin-color-option selected" data-color="#c37d16" style="background-color: #c37d16;"></div>
+                </div>
+                <input type="hidden" id="linkedinColor" name="linkedin_color" value="#c37d16">
+            </div>
         </form>
 
         <div id="svgPreview" class="no-animation">

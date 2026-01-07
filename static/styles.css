@@ -67,7 +67,7 @@ h1 {
 
 .internal-container {
     width: 1000px;
-    height: 700px;
+    height: 750px;
     border: 1.5px solid #6f6e6e;
     border-radius: 10px;
     overflow: hidden;
@@ -106,8 +106,8 @@ h1 {
 }
 
 .theme-option {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 5px;
     cursor: pointer;
     border: 2px solid rgb(119, 118, 118);
@@ -334,6 +334,7 @@ button:hover {
     transform: translate(4px, 4px);
 }
 
+
 .mode-btn.selected:hover {
     background-color: #5edcb8;
     border-color: #5edcb8;
@@ -341,6 +342,46 @@ button:hover {
     box-shadow: none;
 }
 
+
 .hidden {
     display: none !important;
 }
+
+
+.theme-option {
+    width: 40px;
+    height: 20px; /* Reduced height */
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid rgb(119, 118, 118);
+    transition: border-color 0.3s;
+}
+
+.linkedin-color-picker {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    background-color: #100a1c;
+    border: 2px solid rgb(119, 118, 118);
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.linkedin-color-option {
+    width: 30px;
+    height: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid rgb(119, 118, 118); /* Revert to thicker border */
+    transition: border-color 0.3s;
+}
+
+.linkedin-color-option.selected {
+    border-color: #71efbd;
+    box-shadow: 0 0 3px rgba(113, 239, 189, 0.7); /* Smaller shadow */
+}
+
+
+
+

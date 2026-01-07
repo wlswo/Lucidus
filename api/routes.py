@@ -26,6 +26,7 @@ async def get_svg(
         about: Optional[str] = Query(default=""),
         email: Optional[str] = Query(default="test@test.com"),
         linkedin: Optional[str] = Query(default=""),
+        linkedin_color: Optional[str] = Query(default="#c37d16"),
 ):
     data = {
         "theme": theme,
@@ -35,11 +36,13 @@ async def get_svg(
         "address": address,
         "about": about,
         "email": email,
-        "linkedin": linkedin
+        "linkedin": linkedin,
+        "linkedin_color": linkedin_color,
     }
     card_svg = utils.generate_card_v1(data=data)
     response = Response(content=card_svg, media_type="image/svg+xml")
     return response
+
 
 @router.get("/card_v2")
 async def get_svg(
@@ -50,6 +53,7 @@ async def get_svg(
         about: Optional[str] = Query(default=""),
         github: Optional[str] = Query(default="https://www.github.com"),
         linkedin: Optional[str] = Query(default=""),
+        linkedin_color: Optional[str] = Query(default="#c37d16"),
 ):
     data = {
         "name": name,
@@ -58,7 +62,8 @@ async def get_svg(
         "address": address,
         "about": about,
         "github": github,
-        "linkedin": linkedin
+        "linkedin": linkedin,
+        "linkedin_color": linkedin_color,
     }
     card_svg = utils.generate_card_v2(data=data)
     response = Response(content=card_svg, media_type="image/svg+xml")
