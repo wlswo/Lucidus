@@ -65,6 +65,17 @@ h1 {
     font-size: 22px;
 }
 
+.user-count {
+    font-size: 47px;
+    background: linear-gradient(45deg, #5edcb8, #71efbd); /* Green-ish gradient */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: 20px; /* Space between this and the h1 */
+    font-weight: bold;
+}
+
 .internal-container {
     width: 1000px;
     height: 750px;
@@ -126,7 +137,7 @@ form {
     align-items: center;
     gap: 18px;
     justify-content: center;
-    margin-right: 50px;
+    /* margin-right: 50px; REMOVED to ensure proper centering */
     margin-top: 25px;
 }
 
@@ -263,7 +274,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     min-height: 400px;
-    margin-right: 25px;
+    /* margin-right: 25px; REMOVED to ensure proper centering */
 }
 
 .hidden {
@@ -410,7 +421,7 @@ button:hover {
     }
 
     h1 {
-        font-size: 32px; /* Further reduced font size */
+        font-size: 40px; /* Adjusted font size for better mobile display */
     }
 
     .intro {
@@ -471,7 +482,10 @@ button:hover {
     #svgPreview svg {
         width: 100%;
         height: auto;
-    }
+        margin: 0 auto; /* Explicitly center the SVG on mobile */
+        display: block; /* margin auto requires block-level display */
+    transform: translateX(-7px); /* Shift 15px to the left */
+}
 
     #generatedLink {
         width: 100%;

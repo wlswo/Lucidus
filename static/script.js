@@ -217,7 +217,36 @@ document.querySelectorAll('.linkedin-color-option').forEach(option => {
     });
 });
 
+function animateCountUp(el, to, duration) {
+    let startTime = null;
+    const startValue = 0;
+    const range = to - startValue;
+
+    // Easing function (ease-out cubic)
+    const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+
+    function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const easedProgress = easeOutCubic(progress);
+
+        el.textContent = Math.floor(easedProgress * range + startValue);
+
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        } else {
+            el.textContent = to; // Ensure it ends exactly on the target number
+        }
+    }
+
+    window.requestAnimationFrame(step);
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     updateSvg();
     startSvgAnimation();
+    const countUpElement = document.getElementById('user-count-number');
+    if (countUpElement) {
+        animateCountUp(countUpElement, 400, 2700); // Count up to 400 in 3 seconds
+    }
 });
